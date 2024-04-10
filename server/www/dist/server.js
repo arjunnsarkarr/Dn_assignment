@@ -10,15 +10,18 @@ const body_parser_1 = __importDefault(require("body-parser"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const dbConnection_1 = __importDefault(require("./utils/dbConnection"));
 const compression_1 = __importDefault(require("compression"));
+// .env configuration
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 const app = (0, express_1.default)();
 const path = require("path");
+// cookie parser and body parser
 app.use((0, cookie_parser_1.default)());
 app.use(body_parser_1.default.json({ limit: "10mb" }));
 app.use(body_parser_1.default.urlencoded({ extended: true, limit: "10mb" }));
 app.use(express_1.default.static(path.join(__dirname, "public")));
 app.use((0, compression_1.default)());
+//  cors policy
 const domain = process.env.DOMAIN;
 const allowedOrigins = [domain, "https://" + domain, "http://localhost:3000"];
 const corsOptions = {
@@ -32,7 +35,9 @@ const corsOptions = {
     },
 };
 app.use((0, cors_1.default)(corsOptions));
+// The actual api handle from this "/" 
 app.use("/", client_routes_1.default);
+// db connection and server connection establishment
 const PORT = 5000;
 (0, dbConnection_1.default)().then(() => {
     app.listen(PORT, () => {

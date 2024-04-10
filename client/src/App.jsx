@@ -7,6 +7,8 @@ import Loading from "./components/Loading";
 const App = () => {
   const [loading, setLoading] = useState(true);
 
+
+  // this useeffect will show loding screen 
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);

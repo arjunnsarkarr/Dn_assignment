@@ -7,7 +7,7 @@ const Layout = () => {
   const [allData, setAllData] = useState([]);
   const [state, setState] = useContext(CentralizedData);
 
-
+  // This useeffect is used to get all data from the server
   useEffect(() => {
     const alldata = async () => {
       const result = await fetch(`${domain}/data`, {

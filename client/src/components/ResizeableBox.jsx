@@ -12,12 +12,15 @@ const ResizeableBox = (props) => {
   const [imagee, setImagee] = useState(img);
   const [state, setState] = useContext(CentralizedData);
 
+
+  // AddHandler for show image input
   const AddHandler = (e) => {
     e.preventDefault();
     setShow(true);
     setImage("");
   };
 
+  // UpdateHandler for updating image url and count
   const UpdateHandler = async (e) => {
     e.preventDefault();
     setCount(Number(Count) + 1);
@@ -34,7 +37,6 @@ const ResizeableBox = (props) => {
         }),
       });
       const res = await result.json();
-      console.log(res, "this is response from frontend update handler");
     } catch (error) {
       console.log(error);
     }
