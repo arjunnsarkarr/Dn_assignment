@@ -20,6 +20,8 @@ const ResizeableBox = (props) => {
 
   const UpdateHandler = async (e) => {
     e.preventDefault();
+    setCount(Number(Count) + 1);
+    setState(true);
     try {
       const result = await fetch(`${domain}/update`, {
         method: "POST",
@@ -32,13 +34,11 @@ const ResizeableBox = (props) => {
         }),
       });
       const res = await result.json();
-      setState(true);
       console.log(res, "this is response from frontend update handler");
     } catch (error) {
       console.log(error);
     }
     setShow(false);
-    setCount(Number(Count) + 1);
   };
 
   return (
