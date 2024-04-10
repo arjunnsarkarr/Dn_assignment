@@ -1,0 +1,36 @@
+.myBtn {
+  background-image: linear-gradient(135deg, #008aff, #86d472);
+  border-radius: 6px;
+  box-sizing: border-box;
+  color: #000000;
+  display: block;
+  height: 5%;
+  font-size: 1.4em;
+  font-weight: 600;
+  padding: 4px;
+  position: relative;
+  text-decoration: none;
+  width: 7em;
+  z-index: 2;
+  margin-right: 12px;
+  margin-bottom: 5px;
+}
+
+.myBtn:hover {
+  color: #fff;
+}
+
+.myBtn .myBtnspan {
+  align-items: center;
+  background: #ffffff;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  transition: background 0.5s ease;
+  width: 100%;
+}
+
+.myBtn:hover .myBtnspan {
+  background: transparent;
+}
